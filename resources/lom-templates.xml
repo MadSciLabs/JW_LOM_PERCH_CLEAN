@@ -139,11 +139,21 @@
 			<show>two</show>
 		</event>
 
+		<!--
 		<event type="onHoverEnter" >
             		<python file="script.py" function="hideObj" args="*">two</python>
 		</event>
 
 		<event type="onHoverLeave" >
+            		<python file="script.py" function="showObj" args="*">two</python>
+		</event>
+		-->
+
+		<event type="onPresent" >
+            		<python file="script.py" function="hideObj" args="*">two</python>
+		</event>
+
+		<event type="onNotPresent" >
             		<python file="script.py" function="showObj" args="*">two</python>
 		</event>
 
@@ -209,6 +219,7 @@
 			<bubble_message message="touch1" />
 		</event>
 
+		<!--
 		<event type="onHoverEnter">
 			<python file="script.py" function="hideObj" args="*">two</python>
 		</event>
@@ -216,8 +227,7 @@
 		<event type="onHoverLeave">
 			<python file="script.py" function="showObj" args="*">two</python>
 		</event>
-
-		<!--
+		-->
 		<event type="onPresent" >
             		<python file="script.py" function="hideObj" args="*">two</python>
 		</event>
@@ -225,7 +235,6 @@
 		<event type="onNotPresent" >
             		<python file="script.py" function="showObj" args="*">two</python>
 		</event>
-		-->
 
 		</perchObject>
 	</class>
@@ -1219,7 +1228,7 @@
 
 			<!-- LOM CONFIG -->
 
-			<!-- LEFT SIDE -->
+			<!-- LEFT SIDE --
 			<instance class="Frame_Many" replace="u|1">
             		  	<position input="pos">Point(0,0,0)</position>
 			</instance>
@@ -1244,8 +1253,9 @@
 			<instance class="Frame_Many" replace="r|8">
             		  	<position input="pos">Point(912,400,0)</position>
 			</instance>
+			-->
 
-			<!-- RIGHT SIDE 
+			<!-- RIGHT SIDE --> 
 			<instance class="Frame_Four" replace="u|1">
             		  	<position input="pos">Point(0,0,0)</position>
 			</instance>
@@ -1270,7 +1280,6 @@
 			<instance class="Frame_One" replace="r|8">
             		  	<position input="pos">Point(912,400,0)</position>
 			</instance>
-			-->
 
 		</content>
 		</perchObject>

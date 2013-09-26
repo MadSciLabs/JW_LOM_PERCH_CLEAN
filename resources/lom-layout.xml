@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<root>
+	<instance class="BACKGROUND" />
+
+	<instance class="Table"> </instance>
+
+<!--
+	<perchObject>
+                <event type="onApproach">
+                        <python file="script.py" function="debug" args="Approach">splash</python>
+                        <hide>splash</hide>
+                </event>
+
+                <event type="onIdle">
+                        <python file="script.py" function="debug" args="Idle">splash</python>
+                        <show>splash</show>
+                </event>
+		<content>
+                        <image file="./assets/images/background/splash.png" name="splash">
+                                <position>Point(64,0,0)</position>
+                                <show start_alpha="0" alpha="1" duration="2" repeat="none" function="linearFunc" />
+                                <hide start_alpha="1" alpha="0" duration="2" repeat="none" function="linearFunc" />
+                        </image>
+        
+			<instance class="Table"> </instance>
+		</content>
+	</perchObject>
+-->
+
+</root>

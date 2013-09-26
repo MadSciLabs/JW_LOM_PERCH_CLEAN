@@ -6,5 +6,4 @@
 	<template file="lom-templates.xml" />
 	<debug>1</debug>
 	<textSize>10</textSize>
-	<idle>15</idle>
 </root>

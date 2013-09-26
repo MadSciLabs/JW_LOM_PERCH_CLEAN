@@ -290,7 +290,6 @@
 
 		<!-- TOUCH PRESS -->
 		<event type="onMessage" message="touch1" name="man1">
-            		<python file="script.py" function="debug" args="TOUCH 1">man1</python>
 
 			<tell_message message="disableHandSensor">man1</tell_message> <hide>man1</hide>
 			<hide>man1</hide> 
@@ -299,7 +298,6 @@
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="touch2" name="man1">
-            		<python file="script.py" function="debug" args="TOUCH 2">man1</python>
 			<tell_message message="disableHandSensor">man1</tell_message> <hide>man1</hide>
 			<hide>man1</hide> 
 			<tell_message message="show_all">card2</tell_message> 
@@ -307,7 +305,6 @@
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="touch3" name="man1">
-            		<python file="script.py" function="debug" args="TOUCH 3">man1</python>
 			<tell_message message="disableHandSensor">man1</tell_message> <hide>man1</hide>
 			<hide>man1</hide> 
 			<tell_message message="show_all">card3</tell_message> 
@@ -315,7 +312,6 @@
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="touch4" name="man1">
-            		<python file="script.py" function="debug" args="TOUCH 4">man1</python>
 			<tell_message message="disableHandSensor">man1</tell_message> <hide>man1</hide>
 			<hide>man1</hide> 
 			<tell_message message="show_all">card4</tell_message> 
@@ -324,12 +320,10 @@
 		</event>
 
 		<event type="onMessage" message="activateAgain" name="cardTimerOut">
-            		<python file="script.py" function="debug" args="ENABLE AGAIN">man1</python>
 			<tell_message message="enableHandSensor">man1</tell_message>
 		</event>
 
 		<event type="onMessage" message="close_press_timer" name="cardTimerClose" >
-            		<python file="script.py" function="debug" args="7 SECOND ENABLE AGAIN">man1</python>
 			<hide>card1</hide><hide>card2</hide><hide>card3</hide><hide>card4</hide>
 			<show>man1</show>
 			<tell_message message="enableHandSensor">man1</tell_message>
@@ -337,7 +331,6 @@
 
 		<!-- TOUCH CLOSE -->
 		<event type="onMessage" message="close_press" name="card1">
-            		<python file="script.py" function="debug" args="CLOSE CARD AGAIN">man1</python>
 			<hide>card1</hide> <show>man1</show> 
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
@@ -497,21 +490,25 @@
 			<hide>card1</hide>
 			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> 
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
+			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card2">
 			<hide>card2</hide>
 			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> 
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
+			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card3">
 			<hide>card3</hide>
 			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> 
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
+			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card4">
 			<hide>card4</hide>
 			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> 
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
+			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
 		</perchObject>
@@ -599,7 +596,6 @@
 
 			<event type="onMessage" message="disableHandSensorSet">
 
-                        <python file="script.py" function="debug" args="disable set">man1</python>
 				<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
 			</event>
 		</perchObject>
@@ -687,7 +683,6 @@
 
 			<event type="onMessage" message="disableHandSensorSet">
 
-                        <python file="script.py" function="debug" args="disable set">man1</python>
 				<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
 			</event>
 		</perchObject>
@@ -1216,11 +1211,9 @@
 		</event>
 
                 <event type="onApproach">
-                        <python file="script.py" function="debug" args="Approach">splash</python>
                 </event>
 
                 <event type="onIdle">
-                        <python file="script.py" function="debug" args="Idle">splash</python>
                 </event>
 
 		<content>

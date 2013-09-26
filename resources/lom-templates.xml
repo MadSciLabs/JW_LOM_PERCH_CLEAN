@@ -509,17 +509,14 @@
         </class>
 
 
-	<class name="Frame_Many">
+	<class name="Man_Set">
 
-		<perchObject name="mainframe">
+		<perchObject>
+			<name input="nameSet">noname</name>
+			<show start_alpha="0" alpha="1" duration=".7" repeat="none" function="linearFunc" />
+			<hide start_alpha="1" alpha="0" duration=".7" repeat="none" function="linearFunc" />
 
-		<position name="posx" input="pos">Point(0,0,0)</position>
-	
-		<timer name="cardTimerOut" message="" timerDelay="1" duration="1" repeat="none" />
-		<timer name="cardTimerClose" message="" timerDelay="1" duration="1" repeat="none" />
-	
-		<content>
-
+			<content>
           		<instance class="Man" name="man1" replace="*1|s">
 				<name input="nameMan">man1</name>
             			<position input="posMan">Point(38,50,0)</position>
@@ -565,6 +562,56 @@
 				<sensingArea input="sensing">rect(0,0,152,200)</sensingArea>
 				<handSensor input="handSensing">rect(0,0,132,180)</handSensor>
 			</instance>
+
+			</content>
+		
+			<event type="onMessage" message="touch1" name="man1"> <bubble_message message="settouch1" /> </event>
+			<event type="onMessage" message="touch1" name="man2"> <bubble_message message="settouch2" /> </event>
+			<event type="onMessage" message="touch1" name="man3"> <bubble_message message="settouch3" /> </event>
+			<event type="onMessage" message="touch1" name="man4"> <bubble_message message="settouch4" /> </event>
+			<event type="onMessage" message="touch1" name="man5"> <bubble_message message="settouch5" /> </event>
+			<event type="onMessage" message="touch1" name="man6"> <bubble_message message="settouch6" /> </event>
+			<event type="onMessage" message="touch1" name="man7"> <bubble_message message="settouch7" /> </event>
+			<event type="onMessage" message="touch1" name="man8"> <bubble_message message="settouch8" /> </event>
+			<event type="onMessage" message="touch1" name="man9"> <bubble_message message="settouch9" /> </event>
+			<event type="onMessage" message="touch1" name="man10"> <bubble_message message="settouch10" /> </event>
+		
+			<event type="onMessage" message="enableHandSensorSet">
+			<tell_message message="enableHandSensor">man1</tell_message>
+			<tell_message message="enableHandSensor">man2</tell_message>
+			<tell_message message="enableHandSensor">man3</tell_message>
+			<tell_message message="enableHandSensor">man4</tell_message>
+			<tell_message message="enableHandSensor">man5</tell_message>
+			<tell_message message="enableHandSensor">man6</tell_message>
+			<tell_message message="enableHandSensor">man7</tell_message>
+			<tell_message message="enableHandSensor">man8</tell_message>
+			<tell_message message="enableHandSensor">man9</tell_message>
+			<tell_message message="enableHandSensor">man10</tell_message>
+			</event>
+
+			<event type="onMessage" message="disableHandSensorSet">
+
+                        <python file="script.py" function="debug" args="disable set">man1</python>
+				<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
+			</event>
+		</perchObject>
+	</class>
+
+	<class name="Frame_Many">
+
+		<perchObject name="mainframe">
+
+		<position name="posx" input="pos">Point(0,0,0)</position>
+	
+		<timer name="cardTimerOut" message="" timerDelay="1" duration="1" repeat="none" />
+		<timer name="cardTimerClose" message="" timerDelay="1" duration="1" repeat="none" />
+	
+		<content>
+
+			<instance class="Man_Set" replace="*">
+				<name input="nameSet">manSet</name>
+			</instance>
+
 
 			<instance class="Card" replace="*1|1" >
 				<name input="nameCard">card1</name>
@@ -613,164 +660,153 @@
 		</event>
 
 		<event type="onMessage" message="close_press_timer" name="cardTimerClose" >
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
 			<hide>card1</hide><hide>card2</hide><hide>card3</hide><hide>card4</hide><hide>card5</hide><hide>card6</hide><hide>card7</hide><hide>card8</hide><hide>card9</hide><hide>card10</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
-			<tell_message message="enableHandSensor">man1</tell_message>
-			<tell_message message="enableHandSensor">man2</tell_message>
-			<tell_message message="enableHandSensor">man3</tell_message>
-			<tell_message message="enableHandSensor">man4</tell_message>
-			<tell_message message="enableHandSensor">man5</tell_message>
-			<tell_message message="enableHandSensor">man6</tell_message>
-			<tell_message message="enableHandSensor">man7</tell_message>
-			<tell_message message="enableHandSensor">man8</tell_message>
-			<tell_message message="enableHandSensor">man9</tell_message>
-			<tell_message message="enableHandSensor">man10</tell_message>
+
+			<show>manSet</show>
+			<tell_message message="enableHandSensorSet">manSet</tell_message>
 		</event>
 
 	<!-- TOUCH PRESS -->
-		<event type="onMessage" message="touch1" name="man1">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+		<event type="onMessage" message="settouch1" name="manSet">
+
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card1</tell_message>
 			<show>card1</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man2">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+		<event type="onMessage" message="settouch2" name="manSet">
+
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card2</tell_message>
 			<show>card2</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man3">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+
+		<event type="onMessage" message="settouch3" name="manSet">
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card3</tell_message>
 			<show>card3</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man4">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+		<event type="onMessage" message="settouch4" name="manSet">
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card4</tell_message>
 			<show>card4</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man5">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+		<event type="onMessage" message="settouch5" name="manSet">
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card5</tell_message>
 			<show>card5</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man6">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+		<event type="onMessage" message="settouch6" name="manSet">
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card6</tell_message>
 			<show>card6</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man7">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+		<event type="onMessage" message="settouch7" name="manSet">
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card7</tell_message>
 			<show>card7</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man8">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+		<event type="onMessage" message="settouch8" name="manSet">
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card8</tell_message>
 			<show>card8</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man9">
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+		<event type="onMessage" message="settouch9" name="manSet">
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card9</tell_message>
 			<show>card9</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
-		<event type="onMessage" message="touch1" name="man10">
+		<event type="onMessage" message="settouch10" name="manSet">
 
-			<tell_message message="disableHandSensor">man1</tell_message> <tell_message message="disableHandSensor">man2</tell_message> <tell_message message="disableHandSensor">man3</tell_message> <tell_message message="disableHandSensor">man4</tell_message> <tell_message message="disableHandSensor">man5</tell_message> <tell_message message="disableHandSensor">man6</tell_message> <tell_message message="disableHandSensor">man7</tell_message> <tell_message message="disableHandSensor">man8</tell_message> <tell_message message="disableHandSensor">man9</tell_message> <tell_message message="disableHandSensor">man10</tell_message>
-			<hide>man1</hide> <hide>man2</hide> <hide>man3</hide> <hide>man4</hide> <hide>man5</hide> <hide>man6</hide> <hide>man7</hide> <hide>man8</hide> <hide>man9</hide> <hide>man10</hide>
+			<tell_message message="disableHandSensorSet">manSet</tell_message>
+			<hide>manSet</hide>
 			<tell_message message="show_all">card10</tell_message>
 			<show>card10</show>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="7" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
 		<event type="onMessage" message="activateAgain" name="cardTimerOut">
-			<tell_message message="enableHandSensor">man1</tell_message>
-			<tell_message message="enableHandSensor">man2</tell_message>
-			<tell_message message="enableHandSensor">man3</tell_message>
-			<tell_message message="enableHandSensor">man4</tell_message>
-			<tell_message message="enableHandSensor">man5</tell_message>
-			<tell_message message="enableHandSensor">man6</tell_message>
-			<tell_message message="enableHandSensor">man7</tell_message>
-			<tell_message message="enableHandSensor">man8</tell_message>
-			<tell_message message="enableHandSensor">man9</tell_message>
-			<tell_message message="enableHandSensor">man10</tell_message>
+			<tell_message message="enableHandSensorSet">manSet</tell_message>
 		</event>
 
 		<!-- TOUCH CLOSE -->
 		<event type="onMessage" message="close_press" name="card1">
 			<hide>card1</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
+
 		<event type="onMessage" message="close_press" name="card2">
 			<hide>card2</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
+
 		<event type="onMessage" message="close_press" name="card3">
 			<hide>card3</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card4">
 			<hide>card4</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card5">
 			<hide>card5</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card6">
 			<hide>card6</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card7">
 			<hide>card7</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card8">
 			<hide>card8</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card9">
 			<hide>card9</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card10">
 			<hide>card10</hide>
-			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> <show>man5</show> <show>man6</show> <show>man7</show> <show>man8</show> <show>man9</show> <show>man10</show> 
+			<show>manSet</show>
 			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 

@@ -1207,8 +1207,8 @@
 		<perchObject name="tableObj">
 
 		<!-- LOM CONFIG -->
-		<position input="pos" name="posx">Point(64,0,0)</position>
-		<!--position input="pos" name="posx">Point(0,0,0)</position -->
+		<--position input="pos" name="posx">Point(64,0,0)</position> -->
+		<position input="pos" name="posx">Point(0,0,0)</position>
 
 	        <timer name="blinkTimer" message="masterBlink" duration="8" repeat="1" />
 
@@ -1228,7 +1228,7 @@
 
 			<!-- LOM CONFIG -->
 
-			<!-- LEFT SIDE --
+			<!-- RIGHT SIDE -->
 			<instance class="Frame_Many" replace="u|1">
             		  	<position input="pos">Point(0,0,0)</position>
 			</instance>
@@ -1253,9 +1253,8 @@
 			<instance class="Frame_Many" replace="r|8">
             		  	<position input="pos">Point(912,400,0)</position>
 			</instance>
-			-->
 
-			<!-- RIGHT SIDE --> 
+			<!-- LEFT SIDE --
 			<instance class="Frame_Four" replace="u|1">
             		  	<position input="pos">Point(0,0,0)</position>
 			</instance>
@@ -1280,7 +1279,7 @@
 			<instance class="Frame_One" replace="r|8">
             		  	<position input="pos">Point(912,400,0)</position>
 			</instance>
-
+			-->
 		</content>
 		</perchObject>
         </class>

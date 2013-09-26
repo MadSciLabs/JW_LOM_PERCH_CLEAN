@@ -63,7 +63,6 @@ except Exception:
 	# LOM CONFIG 
 
 	#LEFT SIDE
-	"""
 	hashMenIndex={
 	'1' : '26',
 	'2' : '27',
@@ -135,6 +134,7 @@ except Exception:
 	'13' : '79',
 	'14' : '80'
 	}
+	"""
 
 def masterBlink(obj,kwargs):
 

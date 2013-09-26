@@ -1207,7 +1207,6 @@
 		<perchObject name="tableObj">
 
 		<!-- LOM CONFIG -->
-		<--position input="pos" name="posx">Point(64,0,0)</position> -->
 		<position input="pos" name="posx">Point(0,0,0)</position>
 
 	        <timer name="blinkTimer" message="masterBlink" duration="8" repeat="1" />

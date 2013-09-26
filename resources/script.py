@@ -63,7 +63,7 @@ except Exception:
 	# LOM CONFIG 
 
 	#LEFT SIDE
-	""'
+	"""
 	hashMenIndex={
 	'1' : '26',
 	'2' : '27',

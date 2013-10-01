@@ -394,26 +394,18 @@
 			<instance class="Card" replace="*1|3" >
 				<name input="nameCard">card1</name>
 				<handSensor input="handSensing1">rect(228,100,152,200)</handSensor>
-				<handSensor input="handSensing2">rect(228,300,152,200)</handSensor>
-				<handSensor input="handSensing3">rect(76,300,152,200)</handSensor>
 			</instance>
 			<instance class="Card" replace="*2|4" >
 				<name input="nameCard">card2</name>
 				<handSensor input="handSensing1">rect(76,100,152,200)</handSensor>
-				<handSensor input="handSensing2">rect(228,300,152,200)</handSensor>
-				<handSensor input="handSensing3">rect(76,300,152,200)</handSensor>
 			</instance>
 			<instance class="Card" replace="*3|7" >
 				<name input="nameCard">card3</name>
 				<handSensor input="handSensing1">rect(228,300,152,200)</handSensor>
-				<handSensor input="handSensing2">rect(76,100,152,200)</handSensor>
-				<handSensor input="handSensing3">rect(228,300,152,200)</handSensor>
 			</instance>
 			<instance class="Card" replace="*4|8" >
 				<name input="nameCard">card4</name>
 				<handSensor input="handSensing1">rect(76,300,152,200)</handSensor>
-				<handSensor input="handSensing2">rect(76,100,152,200)</handSensor>
-				<handSensor input="handSensing3">rect(76,300,152,200)</handSensor>
 			</instance>
 
 		</content>
@@ -489,26 +481,26 @@
 		<event type="onMessage" message="close_press" name="card1">
 			<hide>card1</hide>
 			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> 
-			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
+			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card2">
 			<hide>card2</hide>
 			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> 
-			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
+			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card3">
 			<hide>card3</hide>
 			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> 
-			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
+			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 		<event type="onMessage" message="close_press" name="card4">
 			<hide>card4</hide>
 			<show>man1</show> <show>man2</show> <show>man3</show> <show>man4</show> 
-			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 			<timerReset name="cardTimerClose" message="close_press_timer" timerDuration="60000" timerDelay=".1" timerRepeat="0"/>
+			<timerReset name="cardTimerOut" message="activateAgain" timerDuration="1.5" timerDelay=".1" timerRepeat="0"/>
 		</event>
 
 		</perchObject>
@@ -1210,12 +1202,6 @@
             		<python file="script.py" function="masterBlink" args="">tableObj</python>
 		</event>
 
-                <event type="onApproach">
-                </event>
-
-                <event type="onIdle">
-                </event>
-
 		<content>
 
 			<!-- LOM CONFIG -->
@@ -1272,6 +1258,15 @@
 			<instance class="Frame_One" replace="r|8">
             		  	<position input="pos">Point(912,400,0)</position>
 			</instance>
+
+<!--
+		        <image file="./assets/background/esquire/u.png" name="splash">
+                                <position>Point(640,400,0)</position>
+                                <show start_alpha="0" alpha="1" duration="2" repeat="none" function="linearFunc" />
+                                <hide start_alpha="1" alpha="0" duration="2" repeat="none" function="linearFunc" />
+                        </image>
+-->
+
 		</content>
 		</perchObject>
         </class>
